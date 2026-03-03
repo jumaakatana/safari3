@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-accent: #D4AF37; /* Gold accent */
+  --color-brand-emerald: #064E3B; /* Deep Jungle Green */
+  --color-brand-bg: #0A0A0A; /* Pure Black */
+  --color-brand-surface: #121212; /* Slightly lighter black */
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-slate-200 font-sans antialiased selection:bg-brand-accent/30;
+  }
+  
+  h1, h2, h3 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+.luxury-card {
+  @apply bg-brand-surface border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-white/10;
+}
+
+.glass-pill {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
